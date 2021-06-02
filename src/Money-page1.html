@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortunly moneypage-1</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body class="">
+
+<!--Header 1-->
+<div class="md:mx-36">
+  <div class="antialiased bg-gray-100 ">
+  <div class="w-full text-gray-700 bg-white ">
+    <div x-data="{ open: false }" class="flex flex-col md: md:items-center md:justify-between md:flex-row ">
+      <div class="flex flex-row items-center justify-between py-4">
+        <img class="inline-block w-32" src="images/logo.png" alt="Fortunly">
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left text-gray-700 bg-transparent md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline">
+              <span>Products</span>
+              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full mt-2 origin-top-right md:max-w-screen-sm md:w-screen">
+              <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg ">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <!--Dropdown menu here-->
+                </div>
+              </div>
+            </div>
+          </div> 
+        <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+          <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+      <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+        <div @click.away="open = false" class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left text-gray-700 bg-transparent md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 focus:outline-none focus:shadow-outline">
+              <span>News</span>
+              <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right md:max-w-screen-sm md:w-screen">
+              <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg ">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <!--Dropdown menu here-->
+                </div>
+              </div>
+            </div>
+          </div>    
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
+        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+        <button class="invisible inline-block ml-4 md:ml-10 md:visible focus:outline-none">
+            <svg  height="20pt" viewBox="0 -77 512.00213 512" width="20pt" xmlns="http://www.w3.org/2000/svg"><path d="m501.453125 56.09375c-5.902344-21.933594-23.195313-39.222656-45.125-45.128906-40.066406-10.964844-200.332031-10.964844-200.332031-10.964844s-160.261719 0-200.328125 10.546875c-21.507813 5.902344-39.222657 23.617187-45.125 45.546875-10.542969 40.0625-10.542969 123.148438-10.542969 123.148438s0 83.503906 10.542969 123.148437c5.90625 21.929687 23.195312 39.222656 45.128906 45.128906 40.484375 10.964844 200.328125 10.964844 200.328125 10.964844s160.261719 0 200.328125-10.546875c21.933594-5.902344 39.222656-23.195312 45.128906-45.125 10.542969-40.066406 10.542969-123.148438 10.542969-123.148438s.421875-83.507812-10.546875-123.570312zm0 0" fill="#f00"/><path d="m204.96875 256 133.269531-76.757812-133.269531-76.757813zm0 0" fill="#fff"/></svg>
+        </button>
+        <button class="invisible inline-block ml-4 md:visible md:ml-10 focus:outline-none">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z"/></svg>        
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+</div>
+<!--Header 2-->
+<div class="grid flex-row items-center justify-between grid-cols-2 py-2 py-4 border-t border-b  md:mx-36">
+    <div class="flex-row items-center col-span-1 mt-auto text-left ">
+        <button class="inline-block focus:outline-none">
+            <img class="inline-block" src="images/creditcart-icon.jpg">
+            <h1 class="inline-block ml-4 font-medium font-sm">Credit cards</h1>
+        </button>
+    </div>
+    <div class="flex-row items-center col-span-1 text-right ">
+        <button class="inline-block focus:outline-none">
+            <h1 class="inline-block">More Categories</h1>
+            <svg  xmlns="http://www.w3.org/2000/svg" class="inline-block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#006400	">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>        
+        </button>
+    </div>
+</div>
+
+<div class="grid grid-cols-12 mt-4 md:mx-36">
+    <div class="h-auto col-span-1 ">
+        <img class="w-12 h-12 mx-auto mt-28" src="images/igor-icon.jpg" alt="igor">
+        <h1 class="absolute mt-4 text-xs font-bold text-center ">By <span class="text-green-500">Igor M </span><span class="font-thin">September 7 2020</span></h1> 
+        <svg class="w-6 mx-auto mt-12" role="img" fill="#10B981" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Facebook icon</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <svg class="w-6 mx-auto mt-2" role="img" fill="#10B981" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Twitter icon</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        <svg class="w-6 mx-auto mt-2"role="img" fill="#10B981" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn icon</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </div>
+    <div class="col-span-11">
+        <h1 class="text-sm font-bold text-right text-green-600 underline md:mr-24">ADVERTISER DISCLOSURE</h1>
+        <h1 class="px-2 border-l-4 border-green-700 font font-sm"> FORTUNLY’S GUIDE</h1>
+        <h1 class="mt-4 text-4xl font-bold text-gray-600 ">BEST SMALL BUSINESS CREDIT CARD<br> OFFERS OF 2020</h1>
+        <h1 class="mt-24 font-thin text-gray-600 ">Whether your small company is a start-up or you’ve taken over your great-grandparents’ family business, choosing<br>the right credit card is a crucial move.</h1>
+        <h1 class="mt-4 font-thin text-green-500 ">Show More...</h1>
+    </div>
+</div>
+
+<div class="md:mx-60">
+    <h1 class="mt-4 text-3xl font-bold text-center text-gray-600 ">7 Best Credit Cards for Small Businesses</h1>
+</div>
+
+<div class="p-2 mt-8 border border-gray-200 rounded-md shadow-xl md:mx-60">
+    <input type="checkbox" class="inline-block my-auto checked:bg-blue-600">
+    <h1 class="inline-block my-auto text-sm font-thin">Compare</h1>
+    <div class="grid grid-cols-5 border-b border-gray-200">
+        <div class="col-span-1">
+            <img src="images/card-chase.jpg" alt="cc">
+        </div>
+        <div class="col-span-3 pl-2">
+            <h1 class="text-xl font-bold text-green-500 ">Chase Ink Business Unlimited</h1>
+            <h1 class="text-sm text-gray-700 mt-9">Estimated Balance Transfer Savings</h1>
+            <h1 class="absolute inline-block my-auto font-bold text-black ">$434</h1>
+            <h1 class="inline-block mt-1 text-xs text-black px-14 font-extralight ">Savings based on a transfer amount of $2,500 at a current APRof 15%<br>Learn more about our calculations</h1>
+        </div>
+        <div class="col-span-1">
+            <div class="grid grid-cols-3">
+                <div class="col-span-2">
+                    <h1 class="text-xs font-extralight">Credit Recommended</h1>
+                    <h1 class="text-xs">Excellent (670 - 850)</h1>
+                </div>
+                <div class="col-span-1">
+                    <img src="images/speedmeter.jpg" alt="">
+                </div>
+            </div>
+            <button class="w-full p-2 mt-3 text-white bg-green-500 hover:bg-green-600">
+                <h1 class="text-sm">Open Account</h1>
+            </button>
+            <h1 class="pb-5 mt-3 text-xs text-center font-extralight">at Chase Site</h1>
+        </div>
+    </div>
+    <div class="grid grid-cols-5 py-4 border-b border-gray-200">
+        <div class="col-span-1">
+            <h1 class="mr-3 text-sm font-bold text-right">At A Glance</h1>
+        </div>
+        <div class="col-span-1">
+            <h1 class="pl-2 text-sm font-light">Intro Offer</h1>
+            <h1 class="pl-2 text-sm font-bold">0%</h1>
+        </div>
+        <div class="col-span-1">
+            <h1 class="pl-2 text-sm font-light">Sign-up bonus</h1>
+            <h1 class="pl-2 text-sm font-bold">$500</h1>
+        </div>
+        <div class="col-span-1">
+            <h1 class="pl-2 text-sm font-light">Cash back</h1>
+            <h1 class="pl-2 text-sm font-bold">1.5%</h1>
+        </div>
+    </div>
+    <div class="grid grid-cols-5 py-4">
+        <div class="col-span-1">
+            <h1 class="text-sm font-bold text-center text-green-500">See more details ↓</h1>
+        </div>
+        <div class="col-span-4">
+            <h1 class="pl-2 text-sm font-extralight">Ink offers a 0% introductory APR on purchases for the first 12 months. After that, a variable APR of 14.74% to 20.74% applies. This means you can finance business purchases for a year without any interest.</h1>
+        </div>
+    </div>
+</div>
+
+<div class="p-2 mt-8 border border-gray-200 rounded-md shadow-xl md:mx-60">
+    <input type="checkbox" class="inline-block my-auto checked:bg-blue-600">
+    <h1 class="inline-block my-auto text-sm font-thin">Compare</h1>
+    <div class="grid grid-cols-5 border-b border-gray-200">
+        <div class="col-span-1">
+            <img src="images/card-chase.jpg" alt="cc">
+        </div>
+        <div class="col-span-3 pl-2">
+            <h1 class="text-xl font-bold text-green-500 ">Chase Ink Business Unlimited</h1>
+            <h1 class="text-sm text-gray-700 mt-9">Estimated Balance Transfer Savings</h1>
+            <h1 class="absolute inline-block my-auto font-bold text-black ">$434</h1>
+            <h1 class="inline-block mt-1 text-xs text-black px-14 font-extralight ">Savings based on a transfer amount of $2,500 at a current APRof 15%<br>Learn more about our calculations</h1>
+        </div>
+        <div class="col-span-1">
+            <div class="grid grid-cols-3">
+                <div class="col-span-2">
+                    <h1 class="text-xs font-extralight">Credit Recommended</h1>
+                    <h1 class="text-xs">Excellent (670 - 850)</h1>
+                </div>
+                <div class="col-span-1">
+                    <img src="images/speedmeter.jpg" alt="">
+                </div>
+            </div>
+            <button class="w-full p-2 mt-3 text-white bg-green-500 hover:bg-green-600">
+                <h1 class="text-sm">Open Account</h1>
+            </button>
+            <h1 class="pb-5 mt-3 text-xs text-center font-extralight">at Chase Site</h1>
+        </div>
+    </div>
+    <div class="grid grid-cols-5 py-4 border-b border-gray-200">
+        <div class="col-span-1">
+            <h1 class="mr-3 text-sm font-bold text-right">At A Glance</h1>
+        </div>
+        <div class="col-span-1">
+            <h1 class="pl-2 text-sm font-light">Intro Offer</h1>
+            <h1 class="pl-2 text-sm font-bold">0%</h1>
+        </div>
+        <div class="col-span-1">
+            <h1 class="pl-2 text-sm font-light">Sign-up bonus</h1>
+            <h1 class="pl-2 text-sm font-bold">$500</h1>
+        </div>
+        <div class="col-span-1">
+            <h1 class="pl-2 text-sm font-light">Cash back</h1>
+            <h1 class="pl-2 text-sm font-bold">1.5%</h1>
+        </div>
+    </div>
+    <div class="grid grid-cols-5 py-4 border-b border-gray-200">
+        <div class="col-span-1">
+            <h1 class="text-sm font-bold text-center text-green-500">Hide details ↑</h1>
+        </div>
+        <div class="col-span-4">
+            <h1 class="pl-2 text-sm font-extralight">Ink offers a 0% introductory APR on purchases for the first 12 months. After that, a variable APR of 14.74% to 20.74% applies. This means you can finance business purchases for a year without any interest.</h1>
+        </div>
+    </div>
+    <div class="grid grid-cols-5 py-4 ">
+        <div class="col-span-1">
+            <h1 class="mr-3 text-sm font-bold text-right">Rates & Fees</h1>
+        </div>
+        <div class="col-span-2">
+            <h1 class="p-1 text-sm font-light bg-gray-100">Rates & Fees</h1>
+            <h1 class="p-1 text-sm font-light">Intro Purchase APR</h1>
+            <h1 class="p-1 text-sm font-light bg-gray-100">Regular APR</h1>
+            <h1 class="p-1 text-sm font-light ">Intro Balance Transfers APR</h1>
+            <h1 class="p-1 text-sm font-light bg-gray-100">Balance Transfer Fee</h1>
+        </div>
+        <div class="col-span-2">
+            <h1 class="p-1 text-sm font-bold bg-gray-100">$0</h1>
+            <h1 class="p-1 text-sm font-bold">N/A</h1>
+            <h1 class="p-1 text-sm font-bold bg-gray-100">13.99% - 23.99% (Variable)</h1>
+            <h1 class="p-1 text-sm font-bold ">0% intro for 18 months on Balance Transfers</h1>
+            <h1 class="p-1 text-sm font-bold bg-gray-100">3% of each balance transfer; $5 minimum.</h1>
+        </div>
+    </div>
+</div>
+
+<div class="p-2 mt-8 mx-60">
+    <h1 class="text-sm font-bold text-center text-green-500">Evaluating Criteria</h1>
+    <h1 class="mt-4 text-3xl font-bold text-center text-gray-600 ">Our Criteria for Evaluating Small Business Credit Cards</h1>
+    <h1 class="mt-4 text-xl font-bold text-left text-green-500 ">Interest Rate and APR</h1>
+    <h1 class="mt-4 text-sm font-light text-left text-gray-700 ">When choosing a credit card, one of the first things to pay attention to is the annual percentage rate. This is especially important if you expect to keep a balance on the card each month, rather than paying the entire bill on a monthly basis.<br><br>The APR is an annualized figure. The interest charges on your monthly bill are generally compounded daily, often with a grace period that allows you to pay 0% interest if you pay off all your charges within a specified period – generally about 25 days. The higher the APR, the more you’ll pay for the products and services you purchase with the credit card.<br><br> Credit cards may offer a range of APRs for both purchases and balance transfers – all depending on the client’s creditworthiness and current interest rates. An introductory APR period is offered with many business credit cards, during which the interest rate is lower, or even 0%. The introductory interest rate and the length of the introductory period are additional factors according to which we evaluate credit card APR.</h1>
+    <h1 class="mt-4 text-xl font-bold text-left text-green-500 ">Credit Card Fees</h1>
+    <h1 class="mt-4 text-sm font-light text-left text-gray-700 ">When choosing a credit card, one of the first things to pay attention to is the annual percentage rate. This is especially important if you expect to keep a balance on the card each month, rather than paying the entire bill on a monthly basis.<br><br>The APR is an annualized figure. The interest charges on your monthly bill are generally compounded daily, often with a grace period that allows you to pay 0% interest if you pay off all your charges within a specified period – generally about 25 days. The higher the APR, the more you’ll pay for the products and services you purchase with the credit card.<br><br> Credit cards may offer a range of APRs for both purchases and balance transfers – all depending on the client’s creditworthiness and current interest rates. An introductory APR period is offered with many business credit cards, during which the interest rate is lower, or even 0%. The introductory interest rate and the length of the introductory period are additional factors according to which we evaluate credit card APR.</h1>
+    <h1 class="mt-4 text-xl font-bold text-left text-green-500 ">Rewards and Benefits</h1>
+    <h1 class="mt-4 text-sm font-light text-left text-gray-700 ">When choosing a credit card, one of the first things to pay attention to is the annual percentage rate. This is especially important if you expect to keep a balance on the card each month, rather than paying the entire bill on a monthly basis.<br><br>The APR is an annualized figure. The interest charges on your monthly bill are generally compounded daily, often with a grace period that allows you to pay 0% interest if you pay off all your charges within a specified period – generally about 25 days. The higher the APR, the more you’ll pay for the products and services you purchase with the credit card.<br><br> Credit cards may offer a range of APRs for both purchases and balance transfers – all depending on the client’s creditworthiness and current interest rates. An introductory APR period is offered with many business credit cards, during which the interest rate is lower, or even 0%. The introductory interest rate and the length of the introductory period are additional factors according to which we evaluate credit card APR.</h1>
+</div>
+
+<div class="grid w-full grid-cols-2 mt-12 bg-yellow-50">
+    <div class="col-span-1 ml-60">
+        <img src="images/cardimage.jpg" alt="">
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-20 font-bold text-green-500">The Best</h1>
+        <h1 class="mt-4 text-3xl font-bold text-left text-gray-600 ">Small Business Credit Card <br>Offers of 2020</h1>
+        <h1 class="mt-4 text-sm font-bold">• Chase Ink Business Cash <br>• American Express Blue Business Plus <br>• U.S. Bank Business Platinum <br>• Chase Ink Business Unlimited <br>• Capital One Spark Miles for Business <br>• Brex for Startups <br>• Chase Sapphire Preferred Card</h1>
+    </div>
+</div>
+
+<div class="p-2 mt-8 mx-60">
+    <h1 class="text-sm font-bold text-center text-green-500">Reviews</h1>
+    <h1 class="mt-4 text-3xl font-bold text-center text-gray-600 ">Best Small Business Credit Cards of 2020</h1>
+</div>
+
+<div class="p-2 mt-4 border border-gray-200 rounded-md shadow-xl md:mx-60">
+    <div class="grid grid-cols-5 border-b border-gray-200">
+        <div class="col-span-1">
+            <img src="images/card-chase.jpg" alt="cc">
+            <div class="grid grid-cols-3">
+                <div class="col-span-2">
+                    <h1 class="text-xs font-extralight">Credit Recommended</h1>
+                    <h1 class="text-xs">Excellent (670 - 850)</h1>
+                </div>
+                <div class="col-span-1">
+                    <img src="images/speedmeter.jpg" alt="">
+                </div>
+            </div>
+            <button class="w-full p-2 mt-6 text-green-500 bg-white border border-green-500 hover:bg-green-600 hover:text-white">
+                <h1 class="text-sm">+ Add to compare</h1>
+            </button>
+            <button class="w-full p-2 mt-3 text-white bg-green-500 hover:bg-green-600">
+                <h1 class="text-sm">Open Account</h1>
+            </button>
+            <h1 class="pb-5 mt-2 text-xs text-center font-extralight">at Chase Site</h1>
+        </div>
+        <div class="col-span-4 pl-2">
+            <h1 class="pb-12 text-xl font-bold text-green-500 border-b border-gray-200 ">Chase Ink Business Unlimited</h1>
+            <div class="grid grid-cols-2 ">
+                <div class="col-span-1">
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Purchase Intro APR:</h1>
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Welcome Offer:</h1>
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Rewards Rate:</h1>
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Annual Fee:</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">0% intro APR for 12 months</h1>
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">$500 sign-up bonus</h1>
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">1.5% cash back on each purchase</h1>
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">No annual fee</h1>
+                </div>
+            </div>
+            <h1 class="py-2 text-sm font-thin">Offers a 90-day money-back guarantee<br>Free credit report and evaluation<br>Provides tailored credit restoration solutions to each client</h1>
+        </div>
+    </div>
+    <h1 class="py-3 text-sm font-bold">Interest Rate (APR)</h1>
+    <h1 class="text-sm font-light">If you’re reading these business credit card reviews because you’re looking for the best option for big purchases, then the Chase Ink Business Unlimited card is a great choice. It offers a 0% introductory APR on purchases for the first 12 months. After that, a variable APR of 14.74% to 20.74% applies. This means you can finance business purchases for a year without any interest.</h1>
+    <h1 class="py-3 text-sm font-bold">Credit Card Fees</h1>
+    <h1 class="text-sm font-light">The benefits of this credit card, such as percentage of cash back for each purchase, are excellent, especially since there is no annual fee. <br><br>The penalty for late or returned payments is $39. We’ve seen better offers in terms of balance transfer (either $5 or 5% of the amount) and cash advance fees (either $15 or 5% of the amount). But you should definitely take Chase’s Ink Business Unlimited into consideration if the best cash-back credit card for small business is what you aim for.</h1>
+    <h1 class="py-6 text-sm font-bold text-green-500">Read our full Chase Ink Business Unlimited Review.</h1>
+</div>
+
+<div class="p-2 mt-8 border border-gray-200 rounded-md shadow-xl md:mx-60">
+    <div class="grid grid-cols-5 border-b border-gray-200">
+        <div class="col-span-1">
+            <img src="images/card-chase.jpg" alt="cc">
+            <div class="grid grid-cols-3">
+                <div class="col-span-2">
+                    <h1 class="text-xs font-extralight">Credit Recommended</h1>
+                    <h1 class="text-xs">Excellent (670 - 850)</h1>
+                </div>
+                <div class="col-span-1">
+                    <img src="images/speedmeter.jpg" alt="">
+                </div>
+            </div>
+            <button class="w-full p-2 mt-6 text-green-500 bg-white border border-green-500 hover:bg-green-600 hover:text-white">
+                <h1 class="text-sm">+ Add to compare</h1>
+            </button>
+            <button class="w-full p-2 mt-3 text-white bg-green-500 hover:bg-green-600">
+                <h1 class="text-sm">Open Account</h1>
+            </button>
+            <h1 class="pb-5 mt-2 text-xs text-center font-extralight">at Chase Site</h1>
+        </div>
+        <div class="col-span-4 pl-2">
+            <h1 class="pb-12 text-xl font-bold text-green-500 border-b border-gray-200 ">Chase Ink Business Unlimited</h1>
+            <div class="grid grid-cols-2 ">
+                <div class="col-span-1">
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Purchase Intro APR:</h1>
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Welcome Offer:</h1>
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Rewards Rate:</h1>
+                    <h1 class="py-2 text-sm font-bold border-b border-gray-200">Annual Fee:</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">0% intro APR for 12 months</h1>
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">$500 sign-up bonus</h1>
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">1.5% cash back on each purchase</h1>
+                    <h1 class="py-2 text-sm text-gray-400 border-b border-gray-200">No annual fee</h1>
+                </div>
+            </div>
+            <h1 class="py-2 text-sm font-thin">Offers a 90-day money-back guarantee<br>Free credit report and evaluation<br>Provides tailored credit restoration solutions to each client</h1>
+        </div>
+    </div>
+    <h1 class="py-3 text-sm font-bold">Interest Rate (APR)</h1>
+    <h1 class="text-sm font-light">If you’re reading these business credit card reviews because you’re looking for the best option for big purchases, then the Chase Ink Business Unlimited card is a great choice. It offers a 0% introductory APR on purchases for the first 12 months. After that, a variable APR of 14.74% to 20.74% applies. This means you can finance business purchases for a year without any interest.</h1>
+    <h1 class="py-3 text-sm font-bold">Credit Card Fees</h1>
+    <h1 class="text-sm font-light">The benefits of this credit card, such as percentage of cash back for each purchase, are excellent, especially since there is no annual fee. <br><br>The penalty for late or returned payments is $39. We’ve seen better offers in terms of balance transfer (either $5 or 5% of the amount) and cash advance fees (either $15 or 5% of the amount). But you should definitely take Chase’s Ink Business Unlimited into consideration if the best cash-back credit card for small business is what you aim for.</h1>
+    <h1 class="py-6 text-sm font-bold text-green-500">Read our full Chase Ink Business Unlimited Review.</h1>
+</div>
+
+<div class="mt-16 md:mx-60">
+    <h1 class="pb-8 text-3xl font-bold text-left text-gray-600 border-b border-gray-200 ">Frequently Asked Questions</h1>
+    <div class="flex grid grid-cols-4 mt-8">
+        <h1 class="inline-block col-span-3 text-xl text-green-500">How many credit cards does the average person have?</h1>
+        <button class="flex justify-end focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    </div>
+    <h1 class="mt-4 text-xs font-light">Based on the Experian Consumer Credit Review published in 2019, the average American has four credit cards. The same report revealed that New Jersey residents have the highest number of credit cards, 4.1 on average. Meanwhile, residents in Mississippi and Alaska carry the fewest credit cards (2.8 on average).</h1>
+    <div class="grid grid-cols-4 mt-8 ">
+        <h1 class="inline-block col-span-3 text-xl text-green-500">How big is the credit card industry?</h1>
+        <button class="flex justify-end focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    </div>
+    <h1 class="mt-4 text-xs font-light">According to the Nilson Report published in February 2020, four major card networks – Visa, Mastercard, American Express, and Discover – generated $3.966 trillion in credit card purchase volume in the US in 2019. US credit card market data included in the same report shows that there were 44.6 billion transactions made with 690.9 million credit cards in 2019.</h1>
+    <div class="grid grid-cols-4 mt-8 ">
+        <h1 class="inline-block col-span-3 text-xl text-green-500">Which credit card company has the most customers?</h1>
+        <button class="flex justify-end focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    </div>
+    <div class="grid grid-cols-4 mt-8 ">
+        <h1 class="inline-block col-span-3 text-xl text-green-500">Which country uses credit cards the most?</h1>
+        <button class="flex justify-end focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    </div>
+    <div class="grid grid-cols-4 pb-8 mt-8 border-b border-gray-200 ">
+        <h1 class="inline-block col-span-3 text-xl text-green-500">How big is the credit card industry?</h1>
+        <button class="flex justify-end focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<div class="mt-12 md:mx-60">
+    <h1 class="pb-4 text-sm font-medium">About Author</h1>
+    <div class="grid grid-cols-2">
+        <div class="relative inline-block col-span-1">
+            <img class="inline-block" src="images/igor-icon.jpg" alt="">
+            <h1 class="inline-block text-sm font-medium ">By <span class="text-green-500">Igor M</span></h1>
+        </div>
+        <div class="flex justify-end col-span-1 my-auto">
+            <svg class="inline-block w-6 mx-2" role="img" fill="#10B981" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Facebook icon</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <svg class="inline-block w-6 mx-2" role="img" fill="#10B981" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Twitter icon</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            <svg class="inline-block w-6 mx-2"role="img" fill="#10B981" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn icon</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+    </div>
+    <h1 class="mt-4 text-sm font-light">Igor was a translator of professional literature in the fields of management, business and economy before he entered the world of marketing and advertising. For years, the clients he worked for were banks. This gave him an insider’s view of how banks and financial institutions create their products and services. At Fortunly, he uses the knowledge acquired as a banking copywriter to create valuable content that will help you make the best possible financial decisions.</h1>
+</div>
+
+<div class="grid grid-cols-2 pb-8 mt-24 border-b md:grid-cols-5 md:mx-36">
+    <div class="col-span-1">
+        <img class="w-32" src="images/logo.png" alt="Fortunly">
+        <h1 class="mt-6 font-bold text-green-700">Follow Us</h1>
+        <img class="inline-block mt-6" src="images/facebook-icon.jpg" alt="fb">
+        <img class="inline-block mt-6 ml-3" src="images/twitter-icon.jpg" alt="fb">
+        <img class="inline-block mt-6 ml-3" src="images/in-icon.jpg" alt="fb">
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+</div>
+<div class="py-5 md:mx-36">
+    <h1 class="pb-2 text-xs font-extralight">Copyright © 2020 Fortunly.com All Rights Reserved.</h1>
+    <h1 class="text-xs font-extralight">ADVERTISER DISCLOSURE CreditCards.com is an independent, advertising-supported comparison service. The offers that appear on this site are from companies from which CreditCards.com receives compensation. This compensation may impact how and where products appear on this site, including, for example, the order in which they appear within listing categories. Other factors, such as our proprietary website’s rules and the likelihood of applicants’ credit approval also impact how and where products appear on the site. CreditCards.com does not include the entire universe of available financial or credit offers. CCDC has partnerships with issuers including, but not limited to, American Express, Bank of America, Capital One, Chase, Citi and Discover.</h1>
+    <h1 class="text-xs font-extralight">EDITORIAL DISCLOSURE All reviews are prepared by CreditCards.com staff. Opinions expressed therein are solely those of the reviewer and have not been reviewed or approved by any advertiser. The information, including card rates and fees, presented in the review is accurate as of the date of the review. Check the data at the top of this page and the bank’s website for the most current information.</h1>
+</div>
+</body>
+</html>

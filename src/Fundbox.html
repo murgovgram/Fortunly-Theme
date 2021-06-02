@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundbox</title>
+    <link rel="stylesheet" href="tailwind.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    
+<!--Header 1-->
+<div class="md:mx-36">
+    <div class="antialiased bg-gray-100 ">
+    <div class="w-full text-gray-700 bg-white ">
+      <div x-data="{ open: false }" class="flex flex-col md: md:items-center md:justify-between md:flex-row ">
+        <div class="flex flex-row items-center justify-between py-4">
+          <img class="inline-block w-32" src="images/logo.png" alt="Fortunly">
+          <div @click.away="open = false" class="relative" x-data="{ open: false }">
+              <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left text-gray-700 bg-transparent md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none focus:shadow-outline">
+                <span>Products</span>
+                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute left-0 w-full mt-2 origin-top-right md:max-w-screen-sm md:w-screen">
+                <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg ">
+                  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <!--Dropdown menu here-->
+                  </div>
+                </div>
+              </div>
+            </div> 
+          <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+          <div @click.away="open = false" class="relative" x-data="{ open: false }">
+              <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left text-gray-700 bg-transparent md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 focus:outline-none focus:shadow-outline">
+                <span>News</span>
+                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+              </button>
+              <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right md:max-w-screen-sm md:w-screen">
+                <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg ">
+                  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <!--Dropdown menu here-->
+                  </div>
+                </div>
+              </div>
+            </div>    
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
+          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+          <button class="invisible inline-block ml-4 md:ml-10 md:visible focus:outline-none">
+              <svg  height="20pt" viewBox="0 -77 512.00213 512" width="20pt" xmlns="http://www.w3.org/2000/svg"><path d="m501.453125 56.09375c-5.902344-21.933594-23.195313-39.222656-45.125-45.128906-40.066406-10.964844-200.332031-10.964844-200.332031-10.964844s-160.261719 0-200.328125 10.546875c-21.507813 5.902344-39.222657 23.617187-45.125 45.546875-10.542969 40.0625-10.542969 123.148438-10.542969 123.148438s0 83.503906 10.542969 123.148437c5.90625 21.929687 23.195312 39.222656 45.128906 45.128906 40.484375 10.964844 200.328125 10.964844 200.328125 10.964844s160.261719 0 200.328125-10.546875c21.933594-5.902344 39.222656-23.195312 45.128906-45.125 10.542969-40.066406 10.542969-123.148438 10.542969-123.148438s.421875-83.507812-10.546875-123.570312zm0 0" fill="#f00"/><path d="m204.96875 256 133.269531-76.757812-133.269531-76.757813zm0 0" fill="#fff"/></svg>
+          </button>
+          <button class="invisible inline-block ml-4 md:visible md:ml-10 focus:outline-none">
+              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z"/></svg>        
+          </button>
+        </nav>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!--Header 2-->
+<div class="grid flex-row items-center justify-between grid-cols-2 py-4 border-t border-b md:mx-36">
+    <div class="flex-row items-center col-span-1 mt-auto text-left ">
+        <h1 class="inline-block px-4 text-xs font-bold border-l-2 border-green-600">Home →</h1>
+        <h1 class="inline-block pr-4 text-xs">Blog →</h1>
+        <h1 class="inline-block pr-4 text-xs">US Credit Card Market Share: Facts and Statistics</h1>
+        
+    </div>
+</div>
+
+<div class="grid pt-8 mt-4 md:grid-cols-12 md:mx-36">
+    <div class="relative invisible h-auto col-span-3 md:visible ">
+        <img class="absolute w-12 h-12 bottom-6" src="images/igor-icon.jpg" alt="igor">
+        <h1 class="absolute bottom-0 text-xs font-bold text-center ">By <span class="text-green-500">Igor M </span><span class="font-thin">September 7 2020</span></h1> 
+    </div>
+    <div class="relative col-span-7 mb-8 ">
+        <h1 class="px-2 py-1 text-sm font-medium border-l-2 border-green-600">FORTUNLY’S SINGLE REVIEW</h1>
+        <h1 class="mt-2 text-4xl font-bold text-gray-600 ">Fundbox Review</h1>
+    </div>
+    <div class="relative col-span-2 ">
+        <h1 class="absolute bottom-0 invisible font-light uppercase right-30 md:visible">Share</h1>
+        <svg class="absolute bottom-0 right-0 inline-block w-6 " role="img" fill="#10B981" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Facebook icon</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <svg class="absolute bottom-0 inline-block w-6 right-10 " role="img" fill="#10B981" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Twitter icon</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        <svg class="absolute bottom-0 inline-block w-6 right-20 "role="img" fill="#10B981" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn icon</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </div>
+</div>
+
+<div class="grid mt-8 md:grid-cols-12 md:mx-36">
+    <div class="invisible col-span-3 pr-4 md:visible">
+        <h1 class="py-1 text-gray-700 border-b border-gray-200">Table of content</h1>
+        <h1 class="py-1 text-xs text-gray-700">General Credit Card Payment Data</h1>
+        <h1 class="py-1 text-xs text-gray-400">Credit Card Market Share by Network</h1>
+        <h1 class="py-1 text-xs text-gray-400">Purchase Volume in $ Billions (2019)</h1>
+        <h1 class="py-1 text-xs text-gray-400">Purchase Volume in $ Billions (2019)</h1>
+        <h1 class="py-1 text-xs text-gray-400">Purchase Volume in $ Billions (2019)</h1>
+        <h1 class="py-1 text-xs text-gray-400">Purchase Volume in $ Billions (2019)</h1>
+        <h1 class="py-1 text-xs text-gray-400">Purchase Volume in $ Billions (2019)</h1>
+        <h1 class="py-1 text-xs text-gray-400">Credit Card Market Share by Network</h1>
+        <h1 class="py-1 text-xs text-gray-400">Purchase Volume in $ Billions (2019)</h1>
+    </div>
+    <div class="col-span-9 md:mr-12">
+        <h1 class="py-1 text-sm text-gray-500">Fundbox offers two types of funding: revolving lines of credit and invoice financing. Based on what you see in Fundbox reviews on the internet, you’re likely to believe this lender is praiseworthy on the basis of its fast, simple application process and its liberal borrowing requirements. We decided to check it out for ourselves.<br><br>We’re happy to recommend Fundbox to start-up companies and small businesses, especially those whose owners’ credit histories can make it difficult to qualify for loans.</h1>
+        <div class="mt-8 border border-gray-200 rounded-md shadow-xl ">
+            <div class="grid grid-cols-4 gap-2 p-2">
+                <div class="col-span-1">
+                    <img src="images/card-findbox.jpg" alt="">
+                </div>
+                <div class="col-span-2">
+                    <h1 class="text-sm font-bold">Intro Bonus</h1>
+                    <h1 class="py-2 text-4xl font-bold text-green-600">$300</h1>
+                    <h1 class="text-xs text-gray-500 ">Limited Time Offer: Earn a $300 statement credit after you spend $3,000 in purchases on your new Card within the first 6 months. Offer Expires 12/10/2020</h1>
+                </div>
+                <div class="col-span-1 p-5 ">
+                    <div class="flex items-center justify-center py-2">
+                      <button class="px-6 py-2 mx-auto my-auto text-white bg-green-500 focus:outline-none hover:bg-green-600">
+                        <h1 class="text-sm">VISIT SITE</h1>
+                      </button>
+                    </div>
+                    <h1 class="text-sm text-center text-gray-700">Fortunly Rating</h1>
+                    <div class="flex items-center justify-center col-span-1 py-2">
+                        <svg class="w-4 h-4 mx-1 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        <svg class="w-4 h-4 mx-1 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        <svg class="w-4 h-4 mx-1 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        <svg class="w-4 h-4 mx-1 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                        <svg class="w-4 h-4 mx-1 text-yellow-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-4 p-2 bg-gray-100">
+                <div class="col-span-1 p-2">
+                    <h1 class="text-sm font-light">LOAN AMOUNTS</h1>
+                    <h1 class="text-sm font-bold">$1,000-$100,000</h1>
+                    <h1 class="mt-5 text-sm font-light">FUNDING TIME</h1>
+                    <h1 class="text-sm font-bold">24 hours</h1>
+                    <h1 class="mt-5 text-sm font-light">MIN. REVENUE</h1>
+                    <h1 class="text-sm font-bold">$50,000</h1>
+                </div>
+                <div class="col-span-1 p-2">
+                    <h1 class="text-sm font-light">LOAN TERM</h1>
+                    <h1 class="text-sm font-bold">12 weeks – 24 weeks</h1>
+                    <h1 class="mt-5 text-sm font-light">FEES</h1>
+                    <h1 class="text-sm font-bold">Start at 4.64%</h1>
+                    <h1 class="mt-5 text-sm font-light">AVAILABILITY</h1>
+                    <h1 class="text-sm font-bold">United States, US</h1>
+                </div>
+                <div class="col-span-1 p-2">
+                    <h1 class="text-sm font-light">APR RANGE</h1>
+                    <h1 class="text-sm font-bold">N/A</h1>
+                    <h1 class="mt-5 text-sm font-light">YEARS IN BUSINESS</h1>
+                    <h1 class="text-sm font-bold">6 months</h1>
+                </div>
+                <div class="col-span-1 p-2">
+                    <h1 class="text-sm font-light">MIN. CREDIT SCORE</h1>
+                    <h1 class="text-sm font-bold">550</h1>
+                    <h1 class="mt-5 text-sm font-light">BBB RATING</h1>
+                    <h1 class="text-sm font-bold">A+</h1>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 p-2 px-4">
+                <div class="col-span-1 pt-2">
+                    <svg class="inline-block w-16" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1501.7 1504.4" width="32" height="32"><style>.st0{fill:#5e91ff}.st1{fill:#fff}</style><title>Like</title><ellipse class="st0" cx="750.8" cy="752.2" rx="750.8" ry="752.2"/><path class="st1" d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z"/></svg>
+                    <h1 class="inline-block font-bold">Strengths</h1>
+                    <h1 class="py-2 text-sm font-light">
+                        • Simple, fast application process 
+                        <br>• Fast funding 
+                        <br>• Good solution for startups 
+                        <br>• Invoice financing available 
+                        <br>• Low credit score requirement 
+                        <br>• Only banking details required to apply for a line of credit</h1>
+                </div>
+                <div class="col-span-1 pt-2">
+                    <svg class="inline-block w-16 transform rotate-180" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1501.7 1504.4" width="32" height="32"><style>.st0{fill:#5e91ff}.st1{fill:#fff}</style><title>Like</title><ellipse class="st0" cx="750.8" cy="752.2" rx="750.8" ry="752.2"/><path class="st1" d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z"/></svg>
+                    <h1 class="inline-block font-bold ">Weaknesses</h1>
+                    <h1 class="py-2 text-sm font-light">
+                        • Rates can be high 
+                        <br>• Short repayment period</h1>
+                </div>
+            </div>
+        </div>
+        <h1 class="mt-12 text-3xl font-bold text-gray-600 ">Fundbox Overview</h1>
+        <h1 class="py-4 text-sm text-gray-500">Established in 2013, Fundbox is focused on providing invoice financing services to small businesses. In 2017, Fundbox started offering its clients revolving lines of credit. For almost a decade, Fundbox Inc. has supported thousands of small businesses and startups, helping them get funds quickly and without too much paperwork.<br><br>Thousands of small business owners, entrepreneurs, and freelancers trust this lender and use its services for different purposes. Thanks to its flexible eligibility requirements, Fundbox is a good source of funding for businesses that have just entered the market and established businesses with low credit scores.<br><br>Unlike traditional banks, this lender evaluates a business’s strength based upon a variety of parameters, not particularly just credit score.<br><br>Although Fundbox is one of the best solutions for start-up businesses and entrepreneurs, well-established businesses should look for other solutions. Fundbox loans come with a short repayment period (24 weeks maximum) and high interest rates.<br><br>Furthermore, the maximum amount a business can borrow is $100,000, which might be limiting for businesses that are looking for big cash injections. In this case, a traditional bank loan, or maybe a Fundbox alternative, would be a better option.<br><br>However, Fundbox is beneficial for businesses and individuals who are looking for fast funding. The application process is one of the simplest in the whole online lending community. In fact, for a line of credit, you’ll need to provide only your banking details to apply for a loan.</h1>
+        <div class="mt-8 ">
+            <div class="grid grid-cols-3 gap-5 border-b border-gray-200">
+                <div class="col-span-1 bg-gray-100">
+                    <img class="w-40 mx-3 my-8" src="images/card-findbox.jpg" alt="">
+                    <h1 class="px-2 mt-4 text-2xl text-green-600 ">Fundbox</h1>
+                    <h1 class="p-2 mt-8 font-bold">Rewards rate</h1>
+                </div>
+                <div class="col-span-1">
+                    <img class="w-40 mx-3 my-8" src="images/card-findbox.jpg" alt="">
+                    <h1 class="px-2 mt-4 text-2xl text-green-600 ">Fundation</h1>
+                </div>
+                <div class="col-span-1">
+                    <img class="w-40 mx-3 my-8" src="images/card-findbox.jpg" alt="">
+                    <h1 class="px-2 mt-4 text-2xl text-green-600 ">Reliant Funding</h1>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-5 border-b border-gray-200">
+                <div class="col-span-1 bg-gray-100">
+                    <h1 class="p-2 text-xs font-extralight">1% cash back on general purchases</h1>
+                    <h1 class="p-2 py-8 text-xs font-extralight">Additional 1% cash back as you pay for those purchases</h1>
+                    <h1 class="p-2 font-bold">Sign-up bonus</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="p-2 text-xs font-extralight">8% cash back on tickets through Vivid Seats (offer ends Jan. 2022)</h1>
+                    <h1 class="p-2 py-4 text-xs font-extralight">4% cash back on dining and entertainment</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="p-2 text-xs font-extralight">5% cash back on rotating bonus categories that you must activate each </h1>
+                    <h1 class="p-2 py-4 text-xs font-extralight">5% cash back on Ultimate Rewards travel</h1>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-5 border-b border-gray-200">
+                <div class="col-span-1 bg-gray-100">
+                    <h1 class="p-2 text-xs font-extralight">None</h1>
+                    <h1 class="p-2 mt-8 font-bold">Annual fee</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="p-2 text-xs font-extralight">$300 if you spend $3,000 in first 3 months</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="p-2 text-xs font-extralight">$200 if you spend $500 in first 3 months</h1>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-5 ">
+                <div class="col-span-1 bg-gray-100">
+                    <h1 class="p-2 text-xs font-extralight">$0</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="p-2 text-xs font-extralight">$95</h1>
+                </div>
+                <div class="col-span-1">
+                    <h1 class="p-2 text-xs font-extralight">$0</h1>
+                </div>
+            </div>
+        </div>
+        <h1 class="mt-12 text-3xl font-bold text-gray-600 ">Types of Financing Available</h1>
+        <h1 class="py-4 text-sm text-gray-500">Fundbox offers two types of financing: lines of credit and invoice financing. Both financing solutions are good for businesses that are prepared to face a short repayment schedule. Term loans run for 12 or 24 weeks, depending on the agreement with the lender. In most cases, a short repayment period comes with higher rates, which is exactly why many businesses choose other lenders.</h1>
+        <h1 class="mt-12 text-3xl font-bold text-gray-600 ">Revolving Lines of Credit</h1>
+        <h1 class="py-4 text-sm text-gray-500">If you’ve just started your own business and you need a safety net from which you can draw funds any time you want, a Fundbox line of credit could be just what the doctor ordered. With a line of credit, you get access to a pool of money from which you can draw funds any time you want. You can use the money for different purposes – for buying equipment, payroll, rent, or whatever. The lender doesn’t inquire about how you will spend the loan. The amount you can borrow from Fundbox goes up to $100,000, and there is no collateral necessary.</h1>
+        <div class="mt-16 ">
+            <h1 class="pb-8 text-3xl font-bold text-left text-gray-600 border-b border-gray-200 ">Frequently Asked Questions</h1>
+            <div class="flex grid grid-cols-4 mt-8">
+                <h1 class="inline-block col-span-3 text-xl text-green-500">How many credit cards does the average person have?</h1>
+                <button class="flex justify-end focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+            </div>
+            <h1 class="mt-4 text-xs font-light">Based on the Experian Consumer Credit Review published in 2019, the average American has four credit cards. The same report revealed that New Jersey residents have the highest number of credit cards, 4.1 on average. Meanwhile, residents in Mississippi and Alaska carry the fewest credit cards (2.8 on average).</h1>
+            <div class="grid grid-cols-4 mt-8 ">
+                <h1 class="inline-block col-span-3 text-xl text-green-500">How big is the credit card industry?</h1>
+                <button class="flex justify-end focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+            </div>
+            <h1 class="mt-4 text-xs font-light">According to the Nilson Report published in February 2020, four major card networks – Visa, Mastercard, American Express, and Discover – generated $3.966 trillion in credit card purchase volume in the US in 2019. US credit card market data included in the same report shows that there were 44.6 billion transactions made with 690.9 million credit cards in 2019.</h1>
+            <div class="grid grid-cols-4 mt-8 ">
+                <h1 class="inline-block col-span-3 text-xl text-green-500">Which credit card company has the most customers?</h1>
+                <button class="flex justify-end focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="grid grid-cols-4 mt-8 ">
+                <h1 class="inline-block col-span-3 text-xl text-green-500">Which country uses credit cards the most?</h1>
+                <button class="flex justify-end focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="grid grid-cols-4 pb-8 mt-8 border-b border-gray-200 ">
+                <h1 class="inline-block col-span-3 text-xl text-green-500">How big is the credit card industry?</h1>
+                <button class="flex justify-end focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 col-span-1 focus:outline-none" fill="#ffffff" viewBox="0 0 24 24" stroke="#10B981">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grid grid-cols-2 pb-8 mt-24 border-b md:grid-cols-5 md:mx-36">
+    <div class="col-span-1">
+        <img class="w-32" src="images/logo.png" alt="Fortunly">
+        <h1 class="mt-6 font-bold text-green-700">Follow Us</h1>
+        <img class="inline-block mt-6" src="images/facebook-icon.jpg" alt="fb">
+        <img class="inline-block mt-6 ml-3" src="images/twitter-icon.jpg" alt="fb">
+        <img class="inline-block mt-6 ml-3" src="images/in-icon.jpg" alt="fb">
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+    <div class="col-span-1">
+        <h1 class="mt-2 text-sm font-bold">Lorem ipsum dolor</h1>
+        <ul class="mt-4 text-sm font-light">
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+            <li class="py-2">Lorem ipsum dolor</li>
+        </ul>
+    </div>
+</div>
+<div class="py-5 md:mx-36">
+    <h1 class="pb-2 text-xs font-extralight">Copyright © 2020 Fortunly.com All Rights Reserved.</h1>
+    <h1 class="text-xs font-extralight">ADVERTISER DISCLOSURE CreditCards.com is an independent, advertising-supported comparison service. The offers that appear on this site are from companies from which CreditCards.com receives compensation. This compensation may impact how and where products appear on this site, including, for example, the order in which they appear within listing categories. Other factors, such as our proprietary website’s rules and the likelihood of applicants’ credit approval also impact how and where products appear on the site. CreditCards.com does not include the entire universe of available financial or credit offers. CCDC has partnerships with issuers including, but not limited to, American Express, Bank of America, Capital One, Chase, Citi and Discover.</h1>
+    <h1 class="text-xs font-extralight">EDITORIAL DISCLOSURE All reviews are prepared by CreditCards.com staff. Opinions expressed therein are solely those of the reviewer and have not been reviewed or approved by any advertiser. The information, including card rates and fees, presented in the review is accurate as of the date of the review. Check the data at the top of this page and the bank’s website for the most current information.</h1>
+</div>
+</body>
+</html>
